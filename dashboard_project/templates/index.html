@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <div id="bar-chart"></div>
+    <div id="line-chart"></div>
+    <div id="pie-chart"></div>
+
+    <script>
+        // Bar Chart
+        var barData = {{ bar_chart | safe }};
+        var barLayout = { title: 'Product Sales' };
+        Plotly.newPlot('bar-chart', barData, barLayout);
+
+        // Line Chart
+        var lineData = {{ line_chart | safe }};
+        var lineLayout = { title: 'Sales Growth Over Time' };
+        Plotly.newPlot('line-chart', lineData, lineLayout);
+
+        // Pie Chart
+        var pieData = {{ pie_chart | safe }};
+        var pieLayout = { title: 'Market Share' };
+        Plotly.newPlot('pie-chart', pieData, pieLayout);
+    </script>
+</body>
+</html>
+
