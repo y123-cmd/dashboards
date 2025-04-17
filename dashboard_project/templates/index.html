@@ -14,17 +14,17 @@
     <div id="pie-chart"></div>
 
     <script>
-        // Bar Chart
+        
         var barData = {{ bar_chart | safe }};
         var barLayout = { title: 'Product Sales' };
         Plotly.newPlot('bar-chart', barData, barLayout);
 
-        // Line Chart
+        
         var lineData = {{ line_chart | safe }};
         var lineLayout = { title: 'Sales Growth Over Time' };
         Plotly.newPlot('line-chart', lineData, lineLayout);
 
-        // Pie Chart
+        
         var pieData = {{ pie_chart | safe }};
         var pieLayout = { title: 'Market Share' };
         Plotly.newPlot('pie-chart', pieData, pieLayout);
